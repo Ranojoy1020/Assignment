@@ -1,0 +1,20 @@
+{
+  "Menu": [
+    {
+        "Name" : "Pizza",
+        "Price" : 400
+    },
+    {
+        "Name" : "Sandwich",
+        "Price" : 200
+    },
+    {
+        "Name" : "Coffee",
+        "Price" : 50
+    },
+    {
+        "Name" : "Burger",
+        "Price" : 100
+    }
+  ]
+}
