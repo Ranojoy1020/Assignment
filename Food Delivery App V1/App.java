@@ -38,7 +38,7 @@ public class App {
         double dist =  input.nextDouble();
 
         Order o1 = new Order(item, cost, quantity, dist);
-        System.out.println("You have ordered "+ o1.quantity+ " " + o1.food + "(s), and you are "+ o1.distance + " kms. away");
+        System.out.println("You have ordered "+ o1.quantity+ " " + o1.item + "(s), and you are "+ o1.distance + " kms. away");
 
         
         System.out.println(o1.makeBill());
