@@ -3,6 +3,7 @@ public class Order {
     int price;
     int quantity;
     double distance;
+    double total;
 
     Order(String item, int price, int quantity, double dist) {
         this.item = item;
@@ -11,10 +12,11 @@ public class Order {
         this.distance = dist;
     }
 
-    double makeBill() {
+
+
+    double calcDelivery() {
         int sub_total = this.price * this.quantity;
         double delCharge = 0;
-        double total;
 
         if (200 < sub_total && sub_total <= 500) {
 
@@ -33,7 +35,7 @@ public class Order {
             }
         } else if (501 < sub_total && sub_total <= 1000) {
 
-             if (5.01 < this.distance && this.distance <= 10.00) {
+            if (5.01 < this.distance && this.distance <= 10.00) {
                 delCharge = 50;
             } else if (10.01 < this.distance && this.distance <= 15.00) {
                 delCharge = 100;
@@ -77,10 +79,24 @@ public class Order {
         } else if (3001 < sub_total) {
             delCharge = 0;
         }
-    
 
-        total = sub_total + delCharge;
+        return delCharge;
 
-        return total;
+    }
+
+    double makeBill(){
+        return (this.price * this.quantity) + calcDelivery();
+    }
+
+    void printData() {
+        System.out.println(
+                String.format("%-10s %-15s %-10s %-10s", "Item", "Quantity", "Price", "Amount"));
+        System.out.println("----------------------------------------------------");
+
+        System.out.println(String.format("%-15s %2d %15d %10d", this.item,
+                            this.quantity, this.price, (this.price * this.quantity)));
+
+        System.out.println("Delivery Chargrs : " + calcDelivery());
+        System.out.println("Total : " + makeBill());
     }
 }
